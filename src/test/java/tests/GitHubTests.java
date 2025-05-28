@@ -9,6 +9,8 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class GitHubTests {
 
+    MainPage mainPage = new MainPage();
+
     @BeforeAll
     static void setup() {
         Configuration.baseUrl = "https://github.com/";
@@ -31,8 +33,7 @@ public class GitHubTests {
                 "}";
 
         open("/selenide/selenide");
-
-        new MainPage()
+                mainPage
                 .goToWiki()
                 .shouldContainPage("Soft assertions")
                 .openSoftAssertionsPage()
